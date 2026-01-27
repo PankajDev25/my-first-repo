@@ -1,80 +1,150 @@
-import Image from "next/image";
 import Link from "next/link";
+
+const mockBlogPosts = [
+  {
+    id: 1,
+    title: "Getting Started with Next.js 14",
+    excerpt:
+      "Learn how to build modern web applications with the latest Next.js features and best practices.",
+    date: "January 25, 2026",
+    category: "Tutorial",
+    readTime: "5 min read",
+  },
+  {
+    id: 2,
+    title: "React Hooks: A Deep Dive",
+    excerpt:
+      "Explore the power of React hooks and how they can simplify your component logic and state management.",
+    date: "January 20, 2026",
+    category: "React",
+    readTime: "8 min read",
+  },
+  {
+    id: 3,
+    title: "Tailwind CSS Best Practices",
+    excerpt:
+      "Master the art of utility-first CSS with Tailwind. Discover tips and tricks for more efficient styling.",
+    date: "January 15, 2026",
+    category: "CSS",
+    readTime: "6 min read",
+  },
+  {
+    id: 4,
+    title: "TypeScript for Frontend Developers",
+    excerpt:
+      "Understand how TypeScript can improve your development experience and catch errors before runtime.",
+    date: "January 10, 2026",
+    category: "TypeScript",
+    readTime: "7 min read",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
-      <nav className="flex items-center gap-8 bg-white px-16 py-4 dark:bg-black border-b border-zinc-200 dark:border-zinc-800">
-        <Link href="/" className="font-medium text-zinc-950 dark:text-zinc-50 hover:text-blue-600 dark:hover:text-blue-400">
-          Home
-        </Link>
-        <Link href="/blog" className="font-medium text-zinc-950 dark:text-zinc-50 hover:text-blue-600 dark:hover:text-blue-400">
-          Blog
-        </Link>
-        <Link href="/about" className="font-medium text-zinc-950 dark:text-zinc-50 hover:text-blue-600 dark:hover:text-blue-400">
-          About
-        </Link>
-        <Link href="/contact" className="font-medium text-zinc-950 dark:text-zinc-50 hover:text-blue-600 dark:hover:text-blue-400">
-          Contact
-        </Link>
+    <div className="min-h-screen bg-white dark:bg-black">
+      {/* Navigation Bar */}
+      <nav className="sticky top-0 z-50 border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black">
+        <div className="mx-auto max-w-4xl px-6 py-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-2xl font-bold text-black dark:text-white">
+              BytesBlog
+            </h2>
+            <div className="flex items-center gap-8">
+              <Link
+                href="/"
+                className="font-medium text-zinc-900 transition-colors hover:text-blue-600 dark:text-zinc-100 dark:hover:text-blue-400"
+              >
+                Home
+              </Link>
+              <Link
+                href="/blog"
+                className="font-medium text-zinc-900 transition-colors hover:text-blue-600 dark:text-zinc-100 dark:hover:text-blue-400"
+              >
+                Blog
+              </Link>
+              <Link
+                href="/about"
+                className="font-medium text-zinc-900 transition-colors hover:text-blue-600 dark:text-zinc-100 dark:hover:text-blue-400"
+              >
+                About
+              </Link>
+              <Link
+                href="/contact"
+                className="font-medium text-zinc-900 transition-colors hover:text-blue-600 dark:text-zinc-100 dark:hover:text-blue-400"
+              >
+                Contact
+              </Link>
+            </div>
+          </div>
+        </div>
       </nav>
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-center mx-auto py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+
+      {/* Hero Section */}
+      <section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/50">
+        <div className="mx-auto max-w-4xl px-6 py-16">
+          <h1 className="mb-4 text-4xl font-bold text-black dark:text-white">
+            Welcome to BytesBlog
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg text-zinc-600 dark:text-zinc-400">
+            Explore articles about web development, programming, and modern
+            technologies.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Blog Posts */}
+      <main className="mx-auto max-w-4xl px-6 py-12">
+        <div className="mb-8">
+          <h2 className="mb-8 text-3xl font-bold text-black dark:text-white">
+            Latest Articles
+          </h2>
+          <div className="grid gap-6">
+            {mockBlogPosts.map((post) => (
+              <article
+                key={post.id}
+                className="group border border-zinc-200 rounded-lg p-6 transition-all hover:border-blue-400 hover:shadow-lg dark:border-zinc-800 dark:hover:border-blue-600"
+              >
+                <div className="mb-3 flex items-center gap-3">
+                  <span className="inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700 dark:bg-blue-900 dark:text-blue-200">
+                    {post.category}
+                  </span>
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    {post.date}
+                  </span>
+                </div>
+                <Link href={`/blog/${post.id}`}>
+                  <h3 className="mb-3 text-2xl font-bold text-black transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+                    {post.title}
+                  </h3>
+                </Link>
+                <p className="mb-4 text-zinc-600 dark:text-zinc-400">
+                  {post.excerpt}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    {post.readTime}
+                  </span>
+                  <Link
+                    href={`/blog/${post.id}`}
+                    className="font-medium text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                  >
+                    Read More →
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/50">
+        <div className="mx-auto max-w-4xl px-6 py-8">
+          <p className="text-center text-zinc-600 dark:text-zinc-400">
+            © 2026 BytesBlog. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

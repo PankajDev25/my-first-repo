@@ -1,9 +1,24 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
+      <nav className="flex items-center gap-8 bg-white px-16 py-4 dark:bg-black border-b border-zinc-200 dark:border-zinc-800">
+        <Link href="/" className="font-medium text-zinc-950 dark:text-zinc-50 hover:text-blue-600 dark:hover:text-blue-400">
+          Home
+        </Link>
+        <Link href="/blog" className="font-medium text-zinc-950 dark:text-zinc-50 hover:text-blue-600 dark:hover:text-blue-400">
+          Blog
+        </Link>
+        <Link href="/about" className="font-medium text-zinc-950 dark:text-zinc-50 hover:text-blue-600 dark:hover:text-blue-400">
+          About
+        </Link>
+        <Link href="/contact" className="font-medium text-zinc-950 dark:text-zinc-50 hover:text-blue-600 dark:hover:text-blue-400">
+          Contact
+        </Link>
+      </nav>
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-center mx-auto py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Image
           className="dark:invert"
           src="/next.svg"
